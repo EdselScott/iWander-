@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./home.css";
-import video from "../../Assets/video.mp4";
 import { GrLocation } from "react-icons/gr";
 import { HiFilter } from "react-icons/hi";
 import { FiFacebook } from "react-icons/fi";
@@ -11,6 +10,8 @@ import { TbApps } from "react-icons/tb";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
 
 const Home = () => {
   useEffect(() => {
@@ -18,9 +19,9 @@ const Home = () => {
   }, []);
 
   return (
+    <>
     <section className="home">
       <div className="overlay"></div>
-      <video src={video} muted autoPlay loop type="video/mp4"></video>
 
       <div className="homeContent container">
         <div className="textDiv">
@@ -76,6 +77,9 @@ const Home = () => {
         </div>
       </div>
     </section>
+    <Main />
+    <Footer />
+  </>
   );
 };
 

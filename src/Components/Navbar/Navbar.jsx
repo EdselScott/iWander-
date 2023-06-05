@@ -9,6 +9,8 @@ import "./navbar.css";
 import { MdExplore } from "react-icons/md";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
+import Home from "../Home/Home";
+import App from "../../App";
 
 const Navbar = () => {
   const [active, setActive] = useState("navBar");
@@ -20,6 +22,10 @@ const Navbar = () => {
   const removeNavbar = () => {
     setActive("navBar");
   };
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   return (
     <section className="navBarSection">
@@ -35,42 +41,35 @@ const Navbar = () => {
         <div className={active}>
           <BrowserRouter>
             <ul className="navLists flex">
-              <li className="navItem">
+              <li className="navItem" onClick={refreshPage}>
                 <Link to="/" className="navLink">
                   Home
                 </Link>
               </li>
 
-              <li className="navItem">
+              <li className="navItem"  onClick={refreshPage}>
                 <Link to="/packages" className="navLink">
                   Packages
                 </Link>
               </li>
 
-              <li className="navItem">
+              <li className="navItem" onClick={refreshPage}>
                 <Link to="/about" className="navLink">
                   About
                 </Link>
               </li>
 
-              <li className="navItem">
+              <li className="navItem" onClick={refreshPage}>
                 <Link to="/contact" className="navLink">
                   Contact
                 </Link>
               </li>
 
-              <button className="btn">
+              <button className="btn" onClick={refreshPage}>
                 <Link to="/book-now">BOOK NOW</Link>
               </button>
             </ul>
 
-            <Switch>
-              {/* <Route exact path="/" component={Layout} /> */}
-              <Route path="/packages" component={Packages} />
-              <Route path="/about" component={About} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/book-now" component={BookNow} />
-            </Switch>
           </BrowserRouter>
 
           <div onClick={removeNavbar} className="closeNavbar">
